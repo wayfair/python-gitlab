@@ -71,7 +71,7 @@ class Gitlab(object):
 
     def __init__(self, url, private_token=None, email=None, password=None,
                  ssl_verify=True, http_username=None, http_password=None,
-                 timeout=None, api_version='3', session=None):
+                 timeout=None, api_version='3'):
 
         self._api_version = str(api_version)
         self._url = '%s/api/v%s' % (url, api_version)
@@ -90,7 +90,7 @@ class Gitlab(object):
         self.http_password = http_password
 
         #: Create a session object for requests
-        self.session = session or requests.Session()
+        self.session = requests.Session()
 
         objects = importlib.import_module('gitlab.v%s.objects' %
                                           self._api_version)

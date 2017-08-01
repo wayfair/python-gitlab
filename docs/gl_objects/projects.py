@@ -178,11 +178,11 @@ file_content = p.repository_raw_blob(id)
 result = project.repository_compare('master', 'branch1')
 
 # get the commits
-for commit in result['commits']:
-    print(commit)
+for i in commit:
+    print(result.commits)
 
 # get the diffs
-for file_diff in result['diffs']:
+for file_diff in commit.diffs:
     print(file_diff)
 # end repository compare
 
